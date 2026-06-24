@@ -1564,8 +1564,9 @@ spline-viewer::part(logo) {
 
 .loader-logo {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 700;
+    letter-spacing: 6px;
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
