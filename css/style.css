@@ -1508,6 +1508,41 @@ spline-viewer::part(logo) {
         padding-left: 20px;
     }
 
+    .timeline::before {
+        left: 0;
+    }
+
+    .timeline-dot {
+        left: -26px;
+        width: 16px;
+        height: 16px;
+    }
+
+    .timeline-dot::after {
+        width: 6px;
+        height: 6px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .resume-btn {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
 /* ==================== LOADER ==================== */
 .loader-container {
     position: fixed;
@@ -1566,37 +1601,3 @@ spline-viewer::part(logo) {
     font-size: 0.85rem;
 }
 
-    .timeline::before {
-        left: 0;
-    }
-
-    .timeline-dot {
-        left: -26px;
-        width: 16px;
-        height: 16px;
-    }
-
-    .timeline-dot::after {
-        width: 6px;
-        height: 6px;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-
-    .section {
-        padding: 60px 0;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .resume-btn {
-        bottom: 20px;
-        right: 20px;
-    }
-}
