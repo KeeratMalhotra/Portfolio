@@ -1602,3 +1602,30 @@ spline-viewer::part(logo) {
     font-size: 0.85rem;
 }
 
+/* ==================== PAGE REVEAL ANIMATION ==================== */
+body:not(.page-loaded) #navbar,
+body:not(.page-loaded) main,
+body:not(.page-loaded) .social-sidebar,
+body:not(.page-loaded) #footer {
+    opacity: 0;
+    filter: brightness(0) blur(10px);
+    pointer-events: none;
+}
+
+body.page-revealing #navbar,
+body.page-revealing main,
+body.page-revealing .social-sidebar,
+body.page-revealing #footer {
+    transition: opacity 1.8s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 2.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+body.page-loaded #navbar,
+body.page-loaded main,
+body.page-loaded .social-sidebar,
+body.page-loaded #footer {
+    opacity: 1;
+    filter: brightness(1) blur(0px);
+}
+
+

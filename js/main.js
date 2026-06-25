@@ -30,6 +30,18 @@ document.addEventListener('DOMContentLoaded', () => {
         loader.style.visibility = 'hidden';
         setTimeout(() => loader.style.display = 'none', 800);
       }
+
+      // Add reveal classes to trigger darkness-to-normal exposure transition
+      document.body.classList.add('page-revealing');
+      document.body.classList.add('page-loaded');
+
+      // Clean up revealing class after transition completes to restore normal transitions
+      setTimeout(() => {
+        document.body.classList.remove('page-revealing');
+      }, 2500);
+
+      // Trigger hero text animations now that loader is done
+      heroReveal();
     }
   }
 
@@ -767,8 +779,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlickerText();
   initGallerySlideshow();
 
-  // Hero reveal kicks off last — starts the entrance sequence
-  heroReveal();
+  // Hero reveal now triggers in tickLoader case to align with page reveal
 
   // ──────────────────────────────────────────────────────────
   // RESIZE HANDLER — re-evaluate mobile state for cursor
