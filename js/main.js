@@ -223,6 +223,7 @@
     { group: 'Links', label: 'Haven live site', icon: 'ext', run: open('https://haven-ai-new.vercel.app/'), keys: 'demo website' },
     { group: 'Links', label: 'GitHub', icon: 'ext', hint: 'KeeratMalhotra', run: open('https://github.com/KeeratMalhotra'), keys: 'code repos source' },
     { group: 'Links', label: 'LinkedIn', icon: 'ext', hint: 'malhotrakeerat', run: open('https://www.linkedin.com/in/malhotrakeerat/'), keys: 'profile' },
+    { group: 'Links', label: 'Codolio', icon: 'ext', hint: 'coding profile', run: open('https://codolio.com/profile/keeratmalhotra'), keys: 'coding profile platforms leetcode codechef' },
   ];
 
   const cmdk = $('#cmdk');
