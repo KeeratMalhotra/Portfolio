@@ -1,513 +1,675 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keerat Malhotra | Portfolio</title>
-    <meta name="description" content="Keerat Malhotra — Full-Stack Developer & Security Enthusiast. SIH 2025 1st Runner-Up (National Finalist). B.Tech IT at NSUT Delhi. 450+ DSA problems solved.">
-    <meta name="keywords" content="Keerat Malhotra, Full-Stack Developer, Security Enthusiast, SIH 2025, NSUT Delhi, Portfolio">
-    <meta property="og:title" content="Keerat Malhotra | Portfolio">
-    <meta property="og:description" content="SIH 2025 1st Runner-Up. Building scalable full-stack applications. B.Tech IT at NSUT Delhi.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Keerat Malhotra | Portfolio">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Spline 3D Viewer -->
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.97/build/spline-viewer.js"></script>
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/km.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Keerat Malhotra — Software Engineer · AI &amp; Security</title>
+  <meta name="description" content="Keerat Malhotra is a software engineer building AI agents, secure systems and full-stack products. B.Tech IT (Network &amp; Information Security) at NSUT Delhi. 1st Runner-Up, Smart India Hackathon 2025.">
+  <meta name="author" content="Keerat Malhotra">
+  <meta name="theme-color" content="#0A0B0C">
+  <meta name="color-scheme" content="dark">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Keerat Malhotra — Software Engineer · AI &amp; Security">
+  <meta property="og:description" content="AI agents, secure systems and full-stack products. 1st Runner-Up, Smart India Hackathon 2025.">
+  <meta property="og:image" content="assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Keerat Malhotra — Software Engineer · AI &amp; Security">
+  <meta name="twitter:image" content="assets/og.png">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/km.png" type="image/png" sizes="any">
+  <link rel="apple-touch-icon" href="assets/km.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Keerat Malhotra",
+    "jobTitle": "Software Engineer",
+    "email": "mailto:itskeerat43@gmail.com",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Netaji Subhas University of Technology" },
+    "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
+    "knowsAbout": ["AI agents", "Application security", "Cloud security", "Full-stack development"],
+    "sameAs": [
+      "https://github.com/KeeratMalhotra",
+      "https://www.linkedin.com/in/malhotrakeerat/",
+      "https://codolio.com/profile/keeratmalhotra"
+    ]
+  }
+  </script>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loader" class="loader-container">
-        <div class="loader-content">
-            <div class="loader-logo">INITIALIZING...</div>
-            <div class="loader-bar-container">
-                <div class="loader-bar" id="loader-bar"></div>
-            </div>
-            <p class="loader-text"><span id="loader-percent">0</span>%</p>
-        </div>
-    </div>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="rails" aria-hidden="true"></div>
 
-    <!-- Custom Cursor -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursor-follower"></div>
+  <!-- ============================== NAV ============================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="Keerat Malhotra, back to top">
+        <svg class="brand__mark" viewBox="0 0 1459 694" aria-hidden="true">
+          <path d="M0 0H139V278H221L480 19Q501 0 529 0H695V139H556L348 347L556 555H695V694H529Q501 694 480 673L221 417H139V694H0Z"/>
+          <path d="M764 694V139Q764 0 903 0H1320Q1459 0 1459 139V694H1320V139H1181V694H1042V139H903V694Z"/>
+        </svg>
+        <span class="brand__name">Keerat Malhotra</span>
+      </a>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <a href="#hero" class="nav-logo">KM</a>
-        <div class="nav-center-link">
-            <a href="https://www.linkedin.com/in/malhotrakeerat/" target="_blank" rel="noopener">linkedin.com/in/malhotrakeerat</a>
-        </div>
-        <div class="nav-links" id="nav-menu">
-            <a href="#about" class="nav-link">ABOUT</a>
-            <a href="#projects" class="nav-link">PROJECTS</a>
-            <a href="#achievements" class="nav-link">ACHIEVEMENTS</a>
-            <a href="#contact" class="nav-link">CONTACT</a>
-        </div>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work" data-nav="work">Work</a>
+        <a href="#recognition" data-nav="recognition">Recognition</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="cmdk-trigger" type="button" data-cmdk-open aria-label="Open command menu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="cmdk-trigger__label">Search</span>
+          <span class="cmdk-trigger__menu">Menu</span>
+          <kbd><span data-mod>⌘</span>K</kbd>
         </button>
-    </nav>
-
-    <!-- Social Sidebar (Fixed Left) -->
-    <div class="social-sidebar" id="social-sidebar">
-        <a href="https://github.com/KeeratMalhotra" target="_blank" rel="noopener" aria-label="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <a class="btn btn--sm" href="assets/resume.pdf" target="_blank" rel="noopener">
+          Résumé
+          <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/malhotrakeerat/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="mailto:itskeerat43@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-        <a href="https://codolio.com/profile/keeratmalhotra" target="_blank" rel="noopener" aria-label="Codolio">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
-        </a>
-        <div class="sidebar-line"></div>
+      </div>
     </div>
+  </header>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="hero">
-        <!-- Background Elements -->
-        <div class="hero-bg">
-            <div class="hero-grid-bg"></div>
-            <!-- Floating Orbs -->
-            <div class="floating-orb orb-1"></div>
-            <div class="floating-orb orb-2"></div>
-            <div class="floating-orb orb-3"></div>
-            <div class="floating-orb orb-4"></div>
-            <div class="floating-orb orb-5"></div>
+  <main id="main">
+    <!-- ============================== HERO ============================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <canvas class="hero__field" id="field" aria-hidden="true"></canvas>
+      <div class="hero__veil" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__top">
+          <p class="status reveal">
+            <span class="status__dot" aria-hidden="true"></span>
+            Open to SWE · AI · Security internships
+          </p>
+          <p class="hero__loc mono reveal">New Delhi, IN <span class="sep">/</span> <time data-clock>--:--</time> IST</p>
         </div>
 
-        <!-- Spline Robot perfectly centered -->
-        <div class="robot-container">
-            <spline-viewer url="https://prod.spline.design/bhZNrnd0WCKPofhw/scene.splinecode" logo="false"></spline-viewer>
-            <div class="spline-watermark-patch"></div>
+        <h1 class="hero__title" id="hero-title">
+          <span class="word"><span>Keerat</span></span>
+          <span class="word"><span>Malhotra</span></span>
+        </h1>
+
+        <p class="hero__lead reveal">
+          Software engineer building <em>AI agents</em>, <em>secure systems</em> and the full-stack products around them.
+        </p>
+        <p class="hero__sub reveal">
+          B.Tech IT, Network &amp; Information Security at NSUT Delhi. National 1st Runner-Up at Smart India Hackathon 2025.
+        </p>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="#work">
+            View selected work
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+          </a>
+          <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">
+            Résumé
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <button class="btn btn--ghost copy" type="button" data-copy="itskeerat43@gmail.com" aria-label="Copy email address">
+            <span class="mono">itskeerat43@gmail.com</span>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+          </button>
         </div>
+      </div>
 
-        <div class="hero-content">
-            <div class="hero-left">
-                <p class="hero-greeting">Hi, I'm</p>
-                <h1 class="hero-name">KEERAT<br>MALHOTRA</h1>
-            </div>
-
-            <div class="hero-right">
-                <h2 class="hero-role-flicker" id="hero-role-flicker"></h2>
-            </div>
-        </div>
-
-        <!-- Resume Button (Bottom Right) -->
-        <a href="assets/resume.pdf" class="resume-btn" download>
-            RESUME
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" id="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll Down</span>
-        </div>
+      <div class="container">
+        <dl class="proof reveal">
+          <div class="proof__item">
+            <dt>Smart India Hackathon 2025</dt>
+            <dd>1st Runner-Up</dd>
+          </div>
+          <div class="proof__item">
+            <dt>Xerocrypt CTF</dt>
+            <dd>3rd <span>/ 150+ teams</span></dd>
+          </div>
+          <div class="proof__item">
+            <dt>DSA problems solved</dt>
+            <dd>450+</dd>
+          </div>
+          <div class="proof__item">
+            <dt>LeetCode rating</dt>
+            <dd>1600+</dd>
+          </div>
+        </dl>
+      </div>
     </section>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Get To Know Me</p>
-                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+    <!-- ============================== WORK ============================== -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal"><span class="eyebrow__idx">01</span><span data-scramble>Selected work</span></p>
+          <h2 class="section__title reveal" id="work-title">Systems I've designed, built and shipped.</h2>
+          <p class="section__intro reveal">Multi-agent AI, cloud security tooling and production full-stack apps, each built end to end.</p>
+        </header>
+
+        <div class="projects">
+
+          <!-- 01 · SAJAG -->
+          <article class="project reveal" id="sajag" aria-labelledby="sajag-title">
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono">01</span>
+                <span class="mono">2025</span>
+                <span class="tag tag--accent">SIH 2025 · 1st Runner-Up</span>
+                <span class="tag">Full-stack</span>
+              </div>
+              <h3 class="project__title" id="sajag-title">SAJAG</h3>
+              <p class="project__kicker">National Disaster Readiness Platform</p>
+              <p class="project__summary">A real-time platform for India's National Disaster Management Authority to track disaster-preparedness trainings across the country.</p>
+              <ul class="project__points">
+                <li>Led a 6-member team to <strong>1st Runner-Up at the SIH 2025 grand finale</strong> (PS SIH25258), owning the architecture and task delegation.</li>
+                <li>Containerised Node.js and PostgreSQL backend with bulk CSV ingestion pipelines for high-volume training records.</li>
+                <li>JWT-based RBAC across 4 administrative tiers, Mapbox and GeoJSON spatial views, and Gemini-generated analytics summaries.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack">
+                <li>Node.js</li><li>Express</li><li>PostgreSQL</li><li>Docker</li><li>Mapbox</li><li>Gemini</li>
+              </ul>
+              <div class="project__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/SAJAG-National-Disaster-Readiness-Platform" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="link" href="https://youtu.be/tV4KUok0pRU" target="_blank" rel="noopener">Demo video<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
             </div>
-            <div class="about-content">
-                <div class="about-left">
-                    <div class="profile-pic-container reveal">
-                        <img src="assets/myimage.jpeg" alt="Keerat Malhotra" class="profile-pic">
-                    </div>
-                </div>
-                <div class="about-right">
-                    <div class="about-text reveal">
-                        <ul class="about-bullets">
-                            <li><strong>Pre-Final Year at NSUT</strong> — Pursuing B.Tech in IT (Network & Information Security). Constantly exploring new technologies and solving engineering problems.</li>
-                            <li><strong>Problem Solver</strong> — I genuinely enjoy grinding DSA problems and competitive programming. It's oddly satisfying.</li>
-                            <li><strong>Full-Stack Developer</strong> — I like building things that work. Clean code, solid architecture, no unnecessary fluff.</li>
-                            <li><strong>SIH 2025 Finalist</strong> — Led a team to the National Finals. Built a real-time disaster readiness platform for NDMA. Stressful but worth it.</li>
-                            <li><strong>Beyond the Screen</strong> — When I'm not in front of a screen, I'm probably at the gym or exploring some random new tech rabbit hole.</li>
-                        </ul>
-                    </div>
-                </div>
+
+            <figure class="fig">
+              <div class="fig__bar">
+                <span>fig.01 <span class="fig__sep">—</span> request flow</span>
+                <span class="badge">national finalist</span>
+              </div>
+              <div class="fig__scroll"><svg class="sch" viewBox="0 0 560 340" role="img" aria-labelledby="sajag-fig">
+                <title id="sajag-fig">SAJAG architecture: admin tiers, CSV ingestion and the Mapbox dashboard connect to an Express API, which uses PostgreSQL, Gemini and PDF reporting.</title>
+                <path class="e" d="M180 67 C200 67 200 150 220 150"/>
+                <path class="e" d="M180 170 H220"/>
+                <path class="e" d="M220 190 C200 190 200 273 180 273"/>
+                <path class="e" d="M360 150 C380 150 380 67 400 67"/>
+                <path class="e" d="M360 170 H400"/>
+                <path class="e" d="M360 190 C380 190 380 273 400 273"/>
+                <g class="n" transform="translate(20 40)"><rect width="160" height="54" rx="8"/><text x="12" y="23">admin tiers ×4</text><text class="s" x="12" y="40">jwt · rbac</text></g>
+                <g class="n" transform="translate(20 143)"><rect width="160" height="54" rx="8"/><text x="12" y="23">bulk csv ingest</text><text class="s" x="12" y="40">csv-parser · multer</text></g>
+                <g class="n" transform="translate(20 246)"><rect width="160" height="54" rx="8"/><text x="12" y="23">mapbox dashboard</text><text class="s" x="12" y="40">geojson layers</text></g>
+                <g class="n core" transform="translate(220 120)"><rect width="140" height="100" rx="10"/><circle class="dot" cx="122" cy="18" r="3"/><text x="14" y="44">express api</text><text class="s" x="14" y="62">node.js · express 5</text><text class="s" x="14" y="78">docker</text></g>
+                <g class="n" transform="translate(400 40)"><rect width="140" height="54" rx="8"/><text x="12" y="23">postgresql</text><text class="s" x="12" y="40">trainings · geo</text></g>
+                <g class="n" transform="translate(400 143)"><rect width="140" height="54" rx="8"/><text x="12" y="23">gemini</text><text class="s" x="12" y="40">ai summaries</text></g>
+                <g class="n" transform="translate(400 246)"><rect width="140" height="54" rx="8"/><text x="12" y="23">pdf reports</text><text class="s" x="12" y="40">pdfkit · qrcode</text></g>
+              </svg></div>
+              <dl class="kv">
+                <div><dt>role</dt><dd>team lead</dd></div>
+                <div><dt>access</dt><dd>4-tier rbac</dd></div>
+                <div><dt>deploy</dt><dd>docker</dd></div>
+              </dl>
+            </figure>
+          </article>
+
+          <!-- 02 · HAVEN -->
+          <article class="project reveal" id="haven" aria-labelledby="haven-title">
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono">02</span>
+                <span class="mono">2026</span>
+                <span class="tag tag--accent">AI agents</span>
+                <span class="tag">MCP</span>
+              </div>
+              <h3 class="project__title" id="haven-title">Haven</h3>
+              <p class="project__kicker">Multi-agent AI productivity companion</p>
+              <p class="project__summary">Plans your day, manages your tasks and learns your rhythm, all through plain conversation.</p>
+              <ul class="project__points">
+                <li>An orchestrator routes each request to one of <strong>8 specialist Gemini 2.5 Flash agents</strong> (planner, scheduler, priority, email, habits and more).</li>
+                <li>Agents act through <strong>4 Model Context Protocol servers</strong> wrapping Google Calendar, Tasks, Gmail and Slides.</li>
+                <li>Proactive engine with 5 detectors (overcommitment, deadline trajectory and more), gated to 3 nudges a day, with memory persisted in Firestore.</li>
+                <li>FastAPI and WebSocket backend with a Next.js 15 frontend, shipped to Cloud Run through Cloud Build CI/CD.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack">
+                <li>Next.js 15</li><li>TypeScript</li><li>FastAPI</li><li>WebSocket</li><li>Vertex AI</li><li>MCP</li><li>Firestore</li><li>Cloud Run</li>
+              </ul>
+              <div class="project__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/Haven" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="link" href="https://canva.link/lx4k1f3dhvtjpjq" target="_blank" rel="noopener">Demo video<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
             </div>
-                <div class="about-stats reveal">
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="450">0</span><span class="stat-suffix">+</span>
-                        <span class="stat-label">DSA Problems Solved</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="1600">0</span><span class="stat-suffix">+</span>
-                        <span class="stat-label">LeetCode Rating</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="98">0</span><span class="stat-suffix">.64%ile</span>
-                        <span class="stat-label">JEE Mains Percentile</span>
-                    </div>
-                    <div class="stat-card glass-card">
-                        <span class="stat-number" data-target="8">0</span><span class="stat-suffix">.34</span>
-                        <span class="stat-label">CGPA (Till 4th Sem)</span>
-                    </div>
-                </div>
+
+            <figure class="fig">
+              <div class="fig__bar">
+                <span>fig.02 <span class="fig__sep">—</span> agent topology</span>
+                <span class="badge">9 agents</span>
+              </div>
+              <div class="fig__scroll"><svg class="sch" viewBox="0 0 560 340" role="img" aria-labelledby="haven-fig">
+                <title id="haven-fig">Haven architecture: a Next.js client talks over WebSocket to a FastAPI orchestrator backed by Gemini, which delegates to 8 specialist agents that use 4 MCP servers for Google Calendar, Tasks, Gmail and Slides.</title>
+                <path class="e" d="M170 41 H205"/>
+                <path class="e" d="M355 41 H390"/>
+                <path class="e" d="M280 66 V100"/>
+                <path class="e" d="M79 192 V222"/>
+                <path class="e" d="M212 192 V222"/>
+                <path class="e" d="M345 192 V222"/>
+                <path class="e" d="M478 192 V222"/>
+                <text class="lbl" x="176" y="34">ws</text>
+                <g class="n" transform="translate(20 16)"><rect width="150" height="50" rx="8"/><text x="12" y="21">next.js 15</text><text class="s" x="12" y="37">react 19 · ts</text></g>
+                <g class="n core" transform="translate(205 16)"><rect width="150" height="50" rx="8"/><circle class="dot" cx="136" cy="14" r="3"/><text x="12" y="21">orchestrator</text><text class="s" x="12" y="37">fastapi · intent</text></g>
+                <g class="n" transform="translate(390 16)"><rect width="150" height="50" rx="8"/><text x="12" y="21">gemini 2.5 flash</text><text class="s" x="12" y="37">vertex ai</text></g>
+                <g class="grp" transform="translate(20 100)">
+                  <rect width="520" height="92" rx="10"/>
+                  <text class="lbl" x="12" y="16">specialist agents ×8</text>
+                </g>
+                <g class="chip" transform="translate(32 124)"><rect width="118" height="24" rx="6"/><text x="59" y="16">planner</text></g>
+                <g class="chip" transform="translate(157 124)"><rect width="118" height="24" rx="6"/><text x="59" y="16">scheduler</text></g>
+                <g class="chip" transform="translate(282 124)"><rect width="118" height="24" rx="6"/><text x="59" y="16">priority</text></g>
+                <g class="chip" transform="translate(407 124)"><rect width="118" height="24" rx="6"/><text x="59" y="16">notification</text></g>
+                <g class="chip" transform="translate(32 156)"><rect width="118" height="24" rx="6"/><text x="59" y="16">voice</text></g>
+                <g class="chip" transform="translate(157 156)"><rect width="118" height="24" rx="6"/><text x="59" y="16">email</text></g>
+                <g class="chip" transform="translate(282 156)"><rect width="118" height="24" rx="6"/><text x="59" y="16">habits</text></g>
+                <g class="chip" transform="translate(407 156)"><rect width="118" height="24" rx="6"/><text x="59" y="16">review</text></g>
+                <g class="n" transform="translate(20 222)"><rect width="119" height="50" rx="8"/><text x="12" y="21">mcp/calendar</text><text class="s" x="12" y="37">google calendar</text></g>
+                <g class="n" transform="translate(153 222)"><rect width="119" height="50" rx="8"/><text x="12" y="21">mcp/tasks</text><text class="s" x="12" y="37">google tasks</text></g>
+                <g class="n" transform="translate(286 222)"><rect width="119" height="50" rx="8"/><text x="12" y="21">mcp/gmail</text><text class="s" x="12" y="37">gmail</text></g>
+                <g class="n" transform="translate(419 222)"><rect width="119" height="50" rx="8"/><text x="12" y="21">mcp/slides</text><text class="s" x="12" y="37">google slides</text></g>
+                <g class="n infra" transform="translate(20 290)"><rect width="255" height="36" rx="8"/><text x="12" y="23">firestore · persistent memory</text></g>
+                <g class="n infra" transform="translate(285 290)"><rect width="255" height="36" rx="8"/><text x="12" y="23">cloud run · cloud build ci/cd</text></g>
+              </svg></div>
+              <dl class="kv">
+                <div><dt>agents</dt><dd>9</dd></div>
+                <div><dt>mcp servers</dt><dd>4</dd></div>
+                <div><dt>deploy</dt><dd>cloud run</dd></div>
+              </dl>
+            </figure>
+          </article>
+
+          <!-- 03 · CLOUDGUARD -->
+          <article class="project reveal" id="cloudguard" aria-labelledby="cloudguard-title">
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono">03</span>
+                <span class="mono">2026</span>
+                <span class="tag tag--accent">Cloud security</span>
+                <span class="tag">GCP</span>
+              </div>
+              <h3 class="project__title" id="cloudguard-title">CloudGuard</h3>
+              <p class="project__kicker">GCP misconfiguration scanner</p>
+              <p class="project__summary">Scans a Google Cloud project for security misconfigurations, scores it from 0 to 100 and explains how to fix every finding.</p>
+              <ul class="project__points">
+                <li>Four scanners: buckets exposed to <code>allUsers</code>, over-privileged IAM and default service accounts, audit-logging gaps, and firewall ingress open to <code>0.0.0.0/0</code>.</li>
+                <li>Runs as its own <strong>read-only service account</strong>. Two custom roles grant six permissions in total, and it never reads bucket contents.</li>
+                <li>Every finding shares one schema (severity, resource, fix) and rolls up into a severity-weighted score, shown as a CLI report or a Streamlit dashboard.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack">
+                <li>Python</li><li>GCP IAM</li><li>Cloud Storage</li><li>Compute</li><li>Cloud Logging</li><li>Streamlit</li>
+              </ul>
+              <div class="project__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/CloudGuard" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="link" href="https://cloudguard-landing.vercel.app" target="_blank" rel="noopener">Website<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
             </div>
-            
-            <!-- Hackathon Gallery -->
-            <div class="hackathon-gallery reveal">
-                <h3 class="gallery-title">Smart India Hackathon 2025 Highlights</h3>
-                <div class="gallery-slider">
-                    <div class="gallery-slides" id="gallery-slides">
-                        <img src="assets/team-image.jpeg" alt="SIH Team Photo 1" class="gallery-img active">
-                        <img src="assets/team-image2.jpeg" alt="SIH Team Photo 2" class="gallery-img">
-                        <img src="assets/certificate.jpeg" alt="SIH Certificate" class="gallery-img">
-                    </div>
-                    <div class="gallery-dots" id="gallery-dots">
-                        <span class="gallery-dot active" data-index="0"></span>
-                        <span class="gallery-dot" data-index="1"></span>
-                        <span class="gallery-dot" data-index="2"></span>
-                    </div>
-                </div>
+
+            <figure class="fig">
+              <div class="fig__bar">
+                <span>fig.03 <span class="fig__sep">—</span> scan pipeline</span>
+                <span class="badge">read-only</span>
+              </div>
+              <div class="fig__scroll"><svg class="sch" viewBox="0 0 560 340" role="img" aria-labelledby="cloudguard-fig">
+                <title id="cloudguard-fig">CloudGuard pipeline: bucket, IAM, logging and firewall scanners run under a read-only service account and feed a scorecard, which outputs to a Streamlit dashboard and a CLI report.</title>
+                <g class="grp" transform="translate(8 8)">
+                  <rect width="194" height="326" rx="12"/>
+                  <text class="lbl" x="12" y="17">read-only sa · 6 permissions</text>
+                </g>
+                <path class="e" d="M190 57 C215 57 215 155 240 155"/>
+                <path class="e" d="M190 131 C215 131 215 165 240 165"/>
+                <path class="e" d="M190 205 C215 205 215 175 240 175"/>
+                <path class="e" d="M190 279 C215 279 215 185 240 185"/>
+                <path class="e" d="M390 160 C405 160 405 117 420 117"/>
+                <path class="e" d="M390 180 C405 180 405 223 420 223"/>
+                <g class="n" transform="translate(20 30)"><rect width="170" height="54" rx="8"/><text x="12" y="23">bucket_scanner</text><text class="s" x="12" y="40">public allUsers access</text></g>
+                <g class="n" transform="translate(20 104)"><rect width="170" height="54" rx="8"/><text x="12" y="23">iam_scanner</text><text class="s" x="12" y="40">broad roles · default sa</text></g>
+                <g class="n" transform="translate(20 178)"><rect width="170" height="54" rx="8"/><text x="12" y="23">logging_scanner</text><text class="s" x="12" y="40">sinks · retention</text></g>
+                <g class="n" transform="translate(20 252)"><rect width="170" height="54" rx="8"/><text x="12" y="23">firewall_scanner</text><text class="s" x="12" y="40">0.0.0.0/0 ingress</text></g>
+                <g class="n core" transform="translate(240 125)"><rect width="150" height="90" rx="10"/><circle class="dot" cx="132" cy="18" r="3"/><text x="14" y="40">scorecard.py</text><text class="s" x="14" y="58">score 0..100</text></g>
+                <text class="lbl" x="240" y="238">critical −20 · high −10</text>
+                <text class="lbl" x="240" y="252">medium −5 · low −2</text>
+                <g class="n" transform="translate(420 90)"><rect width="120" height="54" rx="8"/><text x="12" y="23">streamlit</text><text class="s" x="12" y="40">dashboard</text></g>
+                <g class="n" transform="translate(420 196)"><rect width="120" height="54" rx="8"/><text x="12" y="23">cli</text><text class="s" x="12" y="40">scorecard report</text></g>
+              </svg></div>
+              <dl class="kv">
+                <div><dt>scanners</dt><dd>4</dd></div>
+                <div><dt>permissions</dt><dd>6</dd></div>
+                <div><dt>access</dt><dd>read-only</dd></div>
+              </dl>
+            </figure>
+          </article>
+
+          <!-- 04 · CAMPUS BAZAAR -->
+          <article class="project reveal" id="campus-bazaar" aria-labelledby="cb-title">
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono">04</span>
+                <span class="mono">2026</span>
+                <span class="tag tag--accent">Full-stack</span>
+                <span class="tag">AI safety</span>
+              </div>
+              <h3 class="project__title" id="cb-title">Campus Bazaar</h3>
+              <p class="project__kicker">Student marketplace with AI moderation</p>
+              <p class="project__summary">A marketplace only for NSUT students to buy, sell and find academic help under anonymous usernames.</p>
+              <ul class="project__points">
+                <li>Every new or edited listing, text and images, is screened by Gemini, which returns a <strong>schema-locked verdict</strong> (violates, safe or unsure, plus category and confidence). User text is treated strictly as data to resist prompt injection.</li>
+                <li><strong>Row-level security on every Postgres table</strong>. Realtime chat over WebSockets inherits the same policies, so users only ever receive their own conversations.</li>
+                <li>Google sign-in restricted to <code>@nsut.ac.in</code>, and a moderator dashboard that shows the AI's verdict and reasoning next to each report.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack">
+                <li>Next.js 16</li><li>React 19</li><li>Supabase</li><li>Postgres RLS</li><li>Gemini</li><li>Tailwind</li>
+              </ul>
+              <div class="project__links">
+                <a class="link" href="https://campusbazaar-nsut.vercel.app" target="_blank" rel="noopener">Live site<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="link" href="https://github.com/KeeratMalhotra/CampusBazaar" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
             </div>
+
+            <figure class="fig">
+              <div class="fig__bar">
+                <span>fig.04 <span class="fig__sep">—</span> moderation flow</span>
+                <span class="badge badge--live">live</span>
+              </div>
+              <div class="fig__scroll"><svg class="sch" viewBox="0 0 560 340" role="img" aria-labelledby="cb-fig">
+                <title id="cb-fig">Campus Bazaar flow: NSUT-only Google sign-in leads to Next.js server routes; listings pass through Gemini moderation, which marks them safe, unsure or violating. Data lives in Supabase Postgres with row-level security and realtime chat.</title>
+                <path class="e" d="M100 78 V143"/>
+                <path class="e" d="M180 170 C195 170 195 157 210 157"/>
+                <path class="e" d="M370 140 C385 140 385 42 400 42"/>
+                <path class="e" d="M370 157 C385 157 385 122 400 122"/>
+                <path class="e" d="M370 174 C385 174 385 202 400 202"/>
+                <path class="e" d="M100 197 V280"/>
+                <path class="e" d="M270 300 H290"/>
+                <g class="n" transform="translate(20 24)"><rect width="160" height="54" rx="8"/><text x="12" y="23">google oauth</text><text class="s" x="12" y="40">@nsut.ac.in only</text></g>
+                <g class="n" transform="translate(20 143)"><rect width="160" height="54" rx="8"/><text x="12" y="23">next.js 16</text><text class="s" x="12" y="40">api routes · actions</text></g>
+                <g class="n core" transform="translate(210 108)"><rect width="160" height="98" rx="10"/><circle class="dot" cx="142" cy="18" r="3"/><text x="14" y="42">gemini moderation</text><text class="s" x="14" y="60">schema-locked verdict</text><text class="s" x="14" y="76">injection-guarded</text></g>
+                <g class="n" transform="translate(400 20)"><rect width="140" height="44" rx="8"/><circle class="v v--ok" cx="15" cy="22" r="3"/><text class="vt" x="25" y="26">safe -&gt; live</text></g>
+                <g class="n" transform="translate(400 100)"><rect width="140" height="44" rx="8"/><circle class="v v--warn" cx="15" cy="22" r="3"/><text class="vt" x="25" y="26">unsure -&gt; queue</text></g>
+                <g class="n" transform="translate(400 180)"><rect width="140" height="44" rx="8"/><circle class="v v--bad" cx="15" cy="22" r="3"/><text class="vt" x="25" y="26">violates -&gt; block</text></g>
+                <g class="n infra" transform="translate(20 280)"><rect width="250" height="40" rx="8"/><text x="12" y="25">supabase postgres · rls</text></g>
+                <g class="n infra" transform="translate(290 280)"><rect width="250" height="40" rx="8"/><text x="12" y="25">realtime chat · rls-scoped</text></g>
+              </svg></div>
+              <dl class="kv">
+                <div><dt>rls</dt><dd>every table</dd></div>
+                <div><dt>auth</dt><dd>nsut only</dd></div>
+                <div><dt>moderation</dt><dd>gemini</dd></div>
+              </dl>
+            </figure>
+          </article>
+
+          <!-- 05 · QUORUM -->
+          <article class="project reveal" id="quorum" aria-labelledby="quorum-title">
+            <div class="project__body">
+              <div class="project__meta">
+                <span class="mono">05</span>
+                <span class="mono">2026</span>
+                <span class="tag tag--accent">Machine learning</span>
+                <span class="tag">Quant</span>
+              </div>
+              <h3 class="project__title" id="quorum-title">QUORUM</h3>
+              <p class="project__kicker">Multi-agent crypto trading system</p>
+              <p class="project__summary">Three trading agents share one account on live US crypto markets, and a desk moves capital to whichever agent is working.</p>
+              <ul class="project__points">
+                <li>ATLAS trades market regimes. ORACLE runs <strong>two gradient-boosted models over 64 features</strong>, retrained daily and walk-forward. NOVA re-weights every strategy on the team by its 90-day record.</li>
+                <li>The desk nets opposing orders to save fees, caps leverage and margin, and blocks new longs when live headlines report hacks, exploits or delistings.</li>
+                <li>Hour-by-hour replay of the live engine on real data, Jan 2022 to Sep 2026: <strong>+126% vs +83% for BTC buy-and-hold</strong>, with a 43% max drawdown vs 67%. Runs as paper trading on live Coinbase prices.</li>
+              </ul>
+              <ul class="stack" aria-label="Tech stack">
+                <li>Python</li><li>FastAPI</li><li>scikit-learn</li><li>WebSocket</li><li>React</li><li>TypeScript</li><li>Docker</li>
+              </ul>
+              <div class="project__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/Trading-bot" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </div>
+            </div>
+
+            <figure class="fig">
+              <div class="fig__bar">
+                <span>fig.05 <span class="fig__sep">—</span> trading desk</span>
+                <span class="badge badge--warn">paper trading</span>
+              </div>
+              <div class="fig__scroll"><svg class="sch" viewBox="0 0 560 340" role="img" aria-labelledby="quorum-fig">
+                <title id="quorum-fig">QUORUM architecture: a live Coinbase feed drives three agents, ATLAS, ORACLE and NOVA, whose orders go to a desk that allocates capital and manages risk, with a news desk able to veto trades. The desk sends orders to paper execution and a dashboard.</title>
+                <path class="e" d="M145 62 C145 84 100 82 100 104"/>
+                <path class="e" d="M145 62 C145 84 280 82 280 104"/>
+                <path class="e" d="M145 62 C145 84 460 82 460 104"/>
+                <path class="e" d="M540 39 H548 Q552 39 552 43 V229 Q552 233 548 233 H430"/>
+                <path class="e" d="M100 158 C100 184 200 180 200 206"/>
+                <path class="e" d="M280 158 V206"/>
+                <path class="e" d="M460 158 C460 184 360 180 360 206"/>
+                <path class="e" d="M210 260 C210 280 145 276 145 296"/>
+                <path class="e" d="M350 260 C350 280 415 276 415 296"/>
+                <text class="lbl" x="470" y="226">news veto</text>
+                <g class="n" transform="translate(20 16)"><rect width="250" height="46" rx="8"/><text x="12" y="20">coinbase feed</text><text class="s" x="12" y="35">live prices · hourly funding</text></g>
+                <g class="n" transform="translate(290 16)"><rect width="250" height="46" rx="8"/><text x="12" y="20">news desk</text><text class="s" x="12" y="35">4 feeds · severity rules</text></g>
+                <g class="n" transform="translate(20 104)"><rect width="160" height="54" rx="8"/><text x="12" y="23">atlas</text><text class="s" x="12" y="40">regime · trend</text></g>
+                <g class="n" transform="translate(200 104)"><rect width="160" height="54" rx="8"/><text x="12" y="23">oracle</text><text class="s" x="12" y="40">gradient boosting</text></g>
+                <g class="n" transform="translate(380 104)"><rect width="160" height="54" rx="8"/><text x="12" y="23">nova</text><text class="s" x="12" y="40">adaptive weights</text></g>
+                <g class="n core" transform="translate(130 206)"><rect width="300" height="54" rx="10"/><circle class="dot" cx="284" cy="16" r="3"/><text x="14" y="23">desk</text><text class="s" x="14" y="40">allocate · net orders · cap risk</text></g>
+                <g class="n infra" transform="translate(20 296)"><rect width="250" height="36" rx="8"/><text x="12" y="23">paper execution · spot + perps</text></g>
+                <g class="n infra" transform="translate(290 296)"><rect width="250" height="36" rx="8"/><text x="12" y="23">dashboard · live p&amp;l</text></g>
+              </svg></div>
+              <dl class="kv">
+                <div><dt>replay return</dt><dd class="pos">+126%</dd></div>
+                <div><dt>max drawdown</dt><dd>43% <span>/ btc 67%</span></dd></div>
+                <div><dt>mode</dt><dd>paper</dd></div>
+              </dl>
+            </figure>
+          </article>
         </div>
+
+        <!-- More projects -->
+        <div class="more reveal">
+          <div class="more__head">
+            <h3 class="more__title">More projects</h3>
+            <a class="link" href="https://github.com/KeeratMalhotra?tab=repositories" target="_blank" rel="noopener">All repositories<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          </div>
+          <ul class="more__list">
+            <li class="row">
+              <span class="row__year mono">2025</span>
+              <span class="row__name">Career Disha</span>
+              <span class="row__desc">AI career counselling: a Gemini chatbot, Google one-tap sign-in and a 100+ college discovery module.</span>
+              <span class="row__stack mono">React · Node · Firebase · Gemini</span>
+              <span class="row__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/Career-Disha" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+                <a class="link" href="https://youtu.be/cJ2eIcv7mMA" target="_blank" rel="noopener">Demo<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </span>
+            </li>
+            <li class="row">
+              <span class="row__year mono">2025</span>
+              <span class="row__name">Society Management System</span>
+              <span class="row__desc">REST backend for residents, automated billing and complaints, with RazorpayX dues collection and verification.</span>
+              <span class="row__stack mono">Node · Express · MySQL · Razorpay</span>
+              <span class="row__links">
+                <a class="link" href="https://github.com/KeeratMalhotra/Society-Management-System" target="_blank" rel="noopener">Source<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <!-- ==================== SKILLS SECTION ==================== -->
-    <section id="skills" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">What I Work With</p>
-                <h2 class="section-title">Technical <span class="gradient-text">Skills</span></h2>
+    <!-- ============================== RECOGNITION ============================== -->
+    <section class="section" id="recognition" aria-labelledby="rec-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal"><span class="eyebrow__idx">02</span><span data-scramble>Recognition</span></p>
+          <h2 class="section__title reveal" id="rec-title">Tested under pressure.</h2>
+        </header>
+
+        <ol class="awards">
+          <li class="award reveal">
+            <time class="award__date mono">Dec 2025</time>
+            <div class="award__main">
+              <h3 class="award__title">Smart India Hackathon 2025 <span class="award__result">1st Runner-Up · National Finalist</span></h3>
+              <p class="award__org">Ministry of Education, Government of India · Team lead</p>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                    </div>
-                    <h3 class="skill-category-title">Languages</h3>
-                    <div class="skill-chips">
-                        <span class="skill-chip">Java</span>
-                        <span class="skill-chip">C/C++</span>
-                        <span class="skill-chip">Python</span>
-                        <span class="skill-chip">JavaScript</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3 class="skill-category-title">Frameworks & Libraries</h3>
-                    <div class="skill-chips">
-                        <span class="skill-chip">Node.js</span>
-                        <span class="skill-chip">Express.js</span>
-                        <span class="skill-chip">React.js</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
-                    </div>
-                    <h3 class="skill-category-title">Databases & Cloud</h3>
-                    <div class="skill-chips">
-                        <span class="skill-chip">PostgreSQL</span>
-                        <span class="skill-chip">MySQL</span>
-                        <span class="skill-chip">MongoDB</span>
-                        <span class="skill-chip">Firebase</span>
-                        <span class="skill-chip">Render</span>
-                        <span class="skill-chip">Vercel</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                    </div>
-                    <h3 class="skill-category-title">Tools & Integrations</h3>
-                    <div class="skill-chips">
-                        <span class="skill-chip">Git/GitHub</span>
-                        <span class="skill-chip">Docker</span>
-                        <span class="skill-chip">Gemini AI API</span>
-                        <span class="skill-chip">OAuth 2.0</span>
-                        <span class="skill-chip">JWT</span>
-                        <span class="skill-chip">REST APIs</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card reveal">
-                    <div class="skill-category-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-                    </div>
-                    <h3 class="skill-category-title">CS Fundamentals</h3>
-                    <div class="skill-chips">
-                        <span class="skill-chip">OOPs</span>
-                        <span class="skill-chip">DBMS</span>
-                        <span class="skill-chip">Computer Networks</span>
-                        <span class="skill-chip">Operating Systems</span>
-                        <span class="skill-chip">DSA</span>
-                    </div>
-                </div>
+            <p class="award__desc">Led a 6-member team through the national grand finale with SAJAG, coordinating end-to-end architecture and task delegation under tight deadlines.</p>
+          </li>
+          <li class="award reveal">
+            <time class="award__date mono">Dec 2025</time>
+            <div class="award__main">
+              <h3 class="award__title">Xerocrypt CTF <span class="award__result">3rd of 150+ teams</span></h3>
+              <p class="award__org">Netaji Subhas University of Technology · Team lead</p>
             </div>
+            <p class="award__desc">Led the team through cryptography and security challenges in a competitive capture-the-flag event.</p>
+          </li>
+          <li class="award reveal">
+            <time class="award__date mono">2025 — now</time>
+            <div class="award__main">
+              <h3 class="award__title">Class Representative <span class="award__result">Elected</span></h3>
+              <p class="award__org">Netaji Subhas University of Technology</p>
+            </div>
+            <p class="award__desc">Elected with over 50% of the vote; the main liaison between faculty and a cohort of 72 students.</p>
+          </li>
+        </ol>
+
+        <div class="gallery reveal" aria-label="Smart India Hackathon 2025 grand finale photos">
+          <figure class="shot shot--tall">
+            <img src="assets/img/sih-team.webp" width="630" height="782" loading="lazy" decoding="async" alt="Keerat with his five teammates at the SIH 2025 grand finale, Oriental University, Indore">
+            <figcaption class="mono">Team at the grand finale · Indore</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/img/sih-judging.webp" width="1157" height="699" loading="lazy" decoding="async" alt="The team presenting SAJAG to an evaluator during judging">
+            <figcaption class="mono">Evaluation round</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/img/sih-certificate.webp" width="1200" height="916" loading="lazy" decoding="async" alt="Smart India Hackathon 2025 grand finale certificate awarded to Keerat Malhotra">
+            <figcaption class="mono">Grand finale · Dec 8–9, 2025</figcaption>
+          </figure>
         </div>
+      </div>
     </section>
 
-    <!-- ==================== PROJECTS SECTION ==================== -->
-    <section id="projects" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">What I've Built</p>
-                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1: SAJAG -->
-                <div class="project-card glass-card reveal">
-                    <div class="project-badge">🏆 SIH 2025 — 1st Runner-Up</div>
-                    <h3 class="project-title">SAJAG — National Disaster Readiness Platform</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">PostgreSQL</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Gemini AI</span>
-                        <span class="tech-tag">Mapbox</span>
-                        <span class="tech-tag">JWT RBAC</span>
-                    </div>
-                    <ul class="project-description">
-                        <li>Engineered a centralized, real-time tracking platform for NDMA to monitor disaster trainings across India. Led a 6-member team to secure <strong>1st Runner-Up (National Finalist)</strong> at Smart India Hackathon 2025.</li>
-                        <li>Architected a scalable backend fully containerized via Docker, with automated bulk data ingestion pipelines for high-volume handling.</li>
-                        <li>Integrated Mapbox API and GeoJSON for interactive spatial visualization, leveraged Google Generative AI for predictive analytics. Built secure JWT-based RBAC across 4 administrative tiers.</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://github.com/KeeratMalhotra/SAJAG-National-Disaster-Readiness-Platform" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            GitHub
-                        </a>
-                        <a href="https://youtu.be/tV4KUok0pRU" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            Live Demo
-                        </a>
-                    </div>
-                </div>
+    <!-- ============================== ABOUT ============================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal"><span class="eyebrow__idx">03</span><span data-scramble>About</span></p>
+          <h2 class="section__title reveal" id="about-title">I like owning the whole system.</h2>
+        </header>
 
-                <!-- Project 2: Career Disha -->
-                <div class="project-card glass-card reveal">
-                    <h3 class="project-title">Career Disha — AI-Powered Career Counseling</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Gemini API</span>
-                        <span class="tech-tag">OAuth 2.0</span>
-                    </div>
-                    <ul class="project-description">
-                        <li>Engineered "Career Dost," an interactive AI chatbot leveraging the Gemini API and prompt engineering for real-time, personalized career counseling and aptitude-based recommendations.</li>
-                        <li>Implemented secure authentication via Google OAuth 2.0 with one-tap sign-in and integrated Firebase for structured user profile data and assessment results.</li>
-                        <li>Built a comprehensive college discovery module aggregating 100+ institutions, enabling students to compare and explore options in one unified platform.</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://github.com/KeeratMalhotra/Career-Disha" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            GitHub
-                        </a>
-                        <a href="https://youtu.be/cJ2eIcv7mMA" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                            Live Demo
-                        </a>
-                    </div>
-                </div>
+        <div class="about">
+          <figure class="portrait reveal">
+            <img src="assets/img/portrait.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Portrait of Keerat Malhotra">
+            <figcaption class="mono"><span>keerat.malhotra</span><span>new delhi</span></figcaption>
+          </figure>
 
-                <!-- Project 3: Society Management System -->
-                <div class="project-card glass-card reveal">
-                    <h3 class="project-title">Society Management System</h3>
-                    <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Express.js</span>
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Razorpay API</span>
-                    </div>
-                    <ul class="project-description">
-                        <li>Designed and developed a robust RESTful API backend; architected an optimized MySQL database schema to manage residents, automated billing, and maintenance complaint workflows.</li>
-                        <li>Integrated RazorpayX Payment Gateway for seamless online dues collection, automated payment verification, and real-time transaction tracking for society members.</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://github.com/KeeratMalhotra/Society-Management-System" target="_blank" rel="noopener" class="project-link">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                            GitHub
-                        </a>
-                    </div>
-                </div>
+          <div class="about__body">
+            <div class="prose reveal">
+              <p>I'm a pre-final-year engineering student at NSUT Delhi, specialising in Network &amp; Information Security. I build systems end to end: the data model, the auth boundary, the API and the interface people actually touch.</p>
+              <p>Lately that means <strong>AI agents that take real actions</strong>, and the security work that keeps them in bounds: least-privilege access, row-level policies, and models that treat user input as data, not instructions.</p>
+              <p>I've solved 450+ DSA problems because I genuinely enjoy it. Away from the screen, I'm usually at the gym.</p>
             </div>
+
+            <div class="edu reveal">
+              <div class="edu__main">
+                <p class="edu__degree">B.Tech, Information Technology</p>
+                <p class="edu__spec">Network &amp; Information Security · Netaji Subhas University of Technology, Delhi</p>
+              </div>
+              <dl class="edu__stats">
+                <div><dt>Years</dt><dd>2024 — 28</dd></div>
+                <div><dt>CGPA <span>(to sem 4)</span></dt><dd>8.34</dd></div>
+                <div><dt>JEE Main</dt><dd>98.64 <span>%ile</span></dd></div>
+              </dl>
+            </div>
+
+            <div class="skills reveal">
+              <div class="skills__group">
+                <h3>AI &amp; ML</h3>
+                <ul><li>Gemini API</li><li>Vertex AI</li><li>Model Context Protocol</li><li>Multi-agent orchestration</li><li>scikit-learn</li><li>Prompt engineering</li></ul>
+              </div>
+              <div class="skills__group">
+                <h3>Security</h3>
+                <ul><li>JWT &amp; RBAC</li><li>OAuth 2.0</li><li>Postgres RLS</li><li>GCP IAM</li><li>Least privilege</li><li>CTF cryptography</li></ul>
+              </div>
+              <div class="skills__group">
+                <h3>Backend</h3>
+                <ul><li>Node.js</li><li>Express</li><li>FastAPI</li><li>WebSockets</li><li>REST APIs</li></ul>
+              </div>
+              <div class="skills__group">
+                <h3>Frontend</h3>
+                <ul><li>React</li><li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li></ul>
+              </div>
+              <div class="skills__group">
+                <h3>Data &amp; Cloud</h3>
+                <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Firestore</li><li>Supabase</li><li>Docker</li><li>Cloud Run</li><li>Vercel</li></ul>
+              </div>
+              <div class="skills__group">
+                <h3>Languages</h3>
+                <ul><li>Java</li><li>C/C++</li><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li></ul>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- ==================== ACHIEVEMENTS SECTION ==================== -->
-    <section id="achievements" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Milestones & Recognition</p>
-                <h2 class="section-title">Achievements & <span class="gradient-text">Leadership</span></h2>
-            </div>
-            <div class="timeline">
-                <!-- SIH 2025 -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">December 2025</span>
-                        <h3 class="timeline-title">🏆 1st Runner-Up — Smart India Hackathon 2025</h3>
-                        <p class="timeline-org">Ministry of Education, Government of India</p>
-                        <p class="timeline-desc">Led a cross-functional 6-member team through the national-level SIH competition (Problem Statement SIH25258), coordinating end-to-end system architecture and task delegation under tight deadlines to secure 1st Runner-Up as a National Finalist.</p>
-                        <div class="timeline-images" id="sih-images">
-                            <!-- SIH images will go here -->
-                        </div>
-                    </div>
-                </div>
+    <!-- ============================== CONTACT ============================== -->
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal"><span class="eyebrow__idx">04</span><span data-scramble>Contact</span></p>
+          <h2 class="section__title reveal" id="contact-title">Let's build something that holds up.</h2>
+          <p class="section__intro reveal">I'm looking for internships in software engineering, AI and security. Email is the fastest way to reach me.</p>
+        </header>
 
-                <!-- Xerocrypt CTF -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">December 2025</span>
-                        <h3 class="timeline-title">🛡️ 3rd Place — Xerocrypt CTF</h3>
-                        <p class="timeline-org">Netaji Subhas University of Technology, Delhi</p>
-                        <p class="timeline-desc">Led a team in a highly competitive Capture The Flag event, successfully solving complex cryptography and security challenges to secure 3rd Place out of 150+ competing teams.</p>
-                    </div>
-                </div>
-
-                <!-- Class Representative -->
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <span class="timeline-date">2nd Semester — Present</span>
-                        <h3 class="timeline-title">🎓 Elected Class Representative</h3>
-                        <p class="timeline-org">Netaji Subhas University of Technology, Delhi</p>
-                        <p class="timeline-desc">Elected by more than 50% votes, serving as the primary liaison between students and faculty for a cohort of 72 students, resolving academic concerns and coordinating class activities.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="contact reveal">
+          <a class="contact__email" href="mailto:itskeerat43@gmail.com">
+            <span>itskeerat43@gmail.com</span>
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <button class="btn btn--ghost copy" type="button" data-copy="itskeerat43@gmail.com">
+            Copy email
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+          </button>
         </div>
+
+        <ul class="socials reveal">
+          <li><a href="https://github.com/KeeratMalhotra" target="_blank" rel="noopener"><span class="mono">GitHub</span><span>KeeratMalhotra</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+          <li><a href="https://www.linkedin.com/in/malhotrakeerat/" target="_blank" rel="noopener"><span class="mono">LinkedIn</span><span>malhotrakeerat</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+          <li><a href="https://codolio.com/profile/keeratmalhotra" target="_blank" rel="noopener"><span class="mono">Codolio</span><span>keeratmalhotra</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+          <li><a href="assets/resume.pdf" target="_blank" rel="noopener"><span class="mono">Résumé</span><span>PDF</span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></li>
+        </ul>
+      </div>
     </section>
+  </main>
 
-    <!-- ==================== EDUCATION SECTION ==================== -->
-    <section id="education" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Academic Background</p>
-                <h2 class="section-title">Edu<span class="gradient-text">cation</span></h2>
-            </div>
-            <div class="edu-card glass-card reveal">
-                <div class="edu-main">
-                    <div class="edu-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="url(#edu-gradient)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            <defs><linearGradient id="edu-gradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#8B5CF6"/><stop offset="100%" style="stop-color:#06B6D4"/></linearGradient></defs>
-                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.1 2.7 2 6 2s6-.9 6-2v-5"/>
-                        </svg>
-                    </div>
-                    <div class="edu-details">
-                        <h3 class="edu-degree">B.Tech in Information Technology</h3>
-                        <p class="edu-specialization">Network & Information Security</p>
-                        <p class="edu-university">Netaji Subhas University of Technology, Delhi</p>
-                        <p class="edu-year">2024 — 2028</p>
-                    </div>
-                </div>
-                <div class="edu-highlights">
-                    <div class="edu-highlight-item">
-                        <span class="edu-highlight-value gradient-text">8.34</span>
-                        <span class="edu-highlight-label">CGPA (Till 4th Sem)</span>
-                    </div>
-                    <div class="edu-highlight-item">
-                        <span class="edu-highlight-value gradient-text">98.64%</span>
-                        <span class="edu-highlight-label">JEE Mains Percentile</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© 2026 Keerat Malhotra</p>
+      <p class="footer__mid">Hand-built with HTML, CSS and WebGL. No frameworks, no templates.</p>
+      <p class="mono footer__hint">Press <kbd><span data-mod>⌘</span>K</kbd> to navigate</p>
+    </div>
+  </footer>
 
-    <!-- ==================== CONTACT SECTION ==================== -->
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header reveal">
-                <p class="section-subtitle">Get In Touch</p>
-                <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
-            </div>
-            <p class="contact-intro reveal">Have a project in mind, want to collaborate, or just want to say hello? I'd love to hear from you.</p>
-            <div class="contact-content">
-                <div class="contact-links reveal">
-                    <a href="mailto:itskeerat43@gmail.com" class="contact-link-card glass-card">
-                        <div class="contact-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        </div>
-                        <div class="contact-link-info">
-                            <span class="contact-link-label">Email</span>
-                            <span class="contact-link-value">itskeerat43@gmail.com</span>
-                        </div>
-                    </a>
-                    <a href="tel:+919811048178" class="contact-link-card glass-card">
-                        <div class="contact-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <div class="contact-link-info">
-                            <span class="contact-link-label">Phone</span>
-                            <span class="contact-link-value">+91-9811048178</span>
-                        </div>
-                    </a>
-                    <a href="https://github.com/KeeratMalhotra" target="_blank" rel="noopener" class="contact-link-card glass-card">
-                        <div class="contact-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                        </div>
-                        <div class="contact-link-info">
-                            <span class="contact-link-label">GitHub</span>
-                            <span class="contact-link-value">KeeratMalhotra</span>
-                        </div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/malhotrakeerat/" target="_blank" rel="noopener" class="contact-link-card glass-card">
-                        <div class="contact-link-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                        </div>
-                        <div class="contact-link-info">
-                            <span class="contact-link-label">LinkedIn</span>
-                            <span class="contact-link-value">malhotrakeerat</span>
-                        </div>
-                    </a>
-                </div>
-                <form class="contact-form glass-card reveal" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-input" id="form-name" placeholder=" " required>
-                        <label for="form-name" class="form-label">Your Name</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-input" id="form-email" placeholder=" " required>
-                        <label for="form-email" class="form-label">Your Email</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-input form-textarea" id="form-message" placeholder=" " required rows="5"></textarea>
-                        <label for="form-message" class="form-label">Message</label>
-                    </div>
-                    <button type="submit" class="btn-submit">
-                        <span>Send Message</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-                    </button>
-                </form>
-            </div>
-        </div>
-    </section>
+  <!-- ============================== COMMAND MENU ============================== -->
+  <div class="cmdk" id="cmdk" hidden>
+    <div class="cmdk__backdrop" data-cmdk-close></div>
+    <div class="cmdk__panel" role="dialog" aria-modal="true" aria-label="Command menu">
+      <div class="cmdk__search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="cmdk-input" type="text" placeholder="Search sections, projects, links…" autocomplete="off" spellcheck="false"
+               role="combobox" aria-expanded="true" aria-controls="cmdk-list" aria-autocomplete="list">
+        <kbd>esc</kbd>
+      </div>
+      <ul class="cmdk__list" id="cmdk-list" role="listbox" aria-label="Commands"></ul>
+      <div class="cmdk__foot mono">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>enter</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
 
-    <!-- ==================== FOOTER ==================== -->
-    <footer id="footer">
-        <div class="container">
-            <div class="footer-content">
-                <p class="footer-text">Designed & Built by <span class="gradient-text">Keerat Malhotra</span></p>
-                <p class="footer-copyright">&copy; 2025 All Rights Reserved</p>
-            </div>
-            <button class="back-to-top" id="back-to-top" aria-label="Back to top">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
-            </button>
-        </div>
-    </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="js/main.js"></script>
+  <script src="js/field.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>
