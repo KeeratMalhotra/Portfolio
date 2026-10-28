@@ -1,7 +1,8 @@
 /* ==========================================================================
-   main.js — interactions for the portfolio.
-   Reveal on scroll, decode text, active nav, local clock, copy email,
-   card spotlight, live schematics and a ⌘K command menu.
+   main.js — core interactions.
+   Reveal on scroll, decode text, active nav, scroll progress, local clock,
+   copy email, card spotlight, live schematics and a ⌘K command menu.
+   Project-specific interactivity lives in projects.js.
    ========================================================================== */
 (() => {
   'use strict';
@@ -34,9 +35,8 @@
       let out = '';
       for (let i = 0; i < len; i++) {
         const ch = final[i];
-        const reveal = i / len * 0.65 + 0.35;
-        if (ch === ' ' || p >= reveal) out += ch;
-        else out += GLYPHS[(Math.random() * GLYPHS.length) | 0];
+        const reveal = (i / len) * 0.65 + 0.35;
+        out += ch === ' ' || p >= reveal ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0];
       }
       el.textContent = out;
       if (p < 1) requestAnimationFrame(step);
@@ -47,7 +47,6 @@
 
   // ------------------------------------------------------------ reveal on scroll
   const revealEls = $$('.reveal');
-  // stagger siblings that enter together
   const groups = new Map();
   revealEls.forEach((el) => {
     const p = el.parentElement;
@@ -64,17 +63,32 @@
         $$('[data-scramble]', entry.target).forEach(decode);
         io.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.04 });
     revealEls.forEach((el) => io.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add('is-in'));
   }
 
-  // ------------------------------------------------------------ nav state
+  // ------------------------------------------------------------ nav state + scroll progress
   const nav = $('#nav');
-  const onScroll = () => nav && nav.classList.toggle('is-scrolled', window.scrollY > 12);
+  const bar = $('#progress');
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      ticking = false;
+      const y = window.scrollY;
+      if (nav) nav.classList.toggle('is-scrolled', y > 12);
+      if (bar) {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+      }
+    });
+  }
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
 
   const navLinks = $$('[data-nav]');
   const sections = navLinks.map((a) => document.getElementById(a.dataset.nav)).filter(Boolean);
@@ -89,7 +103,7 @@
         a.classList.toggle('is-active', on);
         if (on) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
       });
-    }, { threshold: [0, 0.15, 0.3, 0.5, 0.75], rootMargin: '-30% 0px -40% 0px' });
+    }, { threshold: [0, 0.1, 0.25, 0.5, 0.75], rootMargin: '-30% 0px -40% 0px' });
     sections.forEach((s) => so.observe(s));
   }
 
@@ -102,7 +116,7 @@
     setInterval(tick, 15000);
   }
 
-  // ------------------------------------------------------------ toast + copy
+  // ------------------------------------------------------------ toast + copy (shared with projects.js)
   const toastEl = $('#toast');
   let toastT;
   function toast(msg) {
@@ -112,8 +126,7 @@
     clearTimeout(toastT);
     toastT = setTimeout(() => toastEl.classList.remove('is-on'), 2200);
   }
-
-  async function copy(text) {
+  async function copyText(text, msg = 'Copied to clipboard') {
     try {
       await navigator.clipboard.writeText(text);
     } catch {
@@ -127,13 +140,14 @@
       try { document.execCommand('copy'); } catch { /* noop */ }
       ta.remove();
     }
-    toast('Email copied to clipboard');
+    toast(msg);
   }
-  $$('[data-copy]').forEach((btn) => btn.addEventListener('click', () => copy(btn.dataset.copy)));
+  window.KM = { toast, copyText, reduceMotion };
+  $$('[data-copy]').forEach((btn) => btn.addEventListener('click', () => copyText(btn.dataset.copy, 'Email copied to clipboard')));
 
-  // ------------------------------------------------------------ project spotlight
+  // ------------------------------------------------------------ card spotlight
   if (window.matchMedia('(hover: hover)').matches) {
-    $$('.project').forEach((card) => {
+    $$('.case').forEach((card) => {
       card.addEventListener('pointermove', (e) => {
         const r = card.getBoundingClientRect();
         card.style.setProperty('--mx', `${e.clientX - r.left}px`);
@@ -143,7 +157,6 @@
   }
 
   // ------------------------------------------------------------ live schematics
-  // Overlay an animated "packet" stroke on every edge; run only while on screen.
   $$('.sch').forEach((svg) => {
     $$('path.e', svg).forEach((p, i) => {
       const f = p.cloneNode();
@@ -152,14 +165,12 @@
       p.after(f);
     });
   });
-  // on narrow screens diagrams scroll sideways; drop the edge fade once scrolled to the end
   $$('.fig__scroll').forEach((sc) => {
     const update = () => sc.classList.toggle('is-end', sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 4);
     sc.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update, { passive: true });
     update();
   });
-
   if ('IntersectionObserver' in window && !reduceMotion) {
     const fo = new IntersectionObserver((entries) => {
       entries.forEach((e) => e.target.classList.toggle('is-live', e.isIntersecting));
@@ -170,41 +181,49 @@
   // ------------------------------------------------------------ command menu
   const ICON = {
     arrow: '<path d="M5 12h14M13 6l6 6-6 6"/>',
-    hash: '<path d="M4 9h16M4 15h16M10 3 8 21M16 3l-2 18"/>',
     ext: '<path d="M7 17 17 7M8 7h9v9"/>',
     copy: '<rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/>',
     file: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
     mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
     box: '<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/>',
+    shield: '<path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/>',
+    play: '<path d="M8 5v14l11-7z"/>',
   };
-  const go = (id) => () => {
+  const go = (id, tab) => () => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    if (tab && window.KM.openTab) window.KM.openTab(id, tab);
   };
   const open = (url) => () => window.open(url, '_blank', 'noopener');
 
   const COMMANDS = [
     { group: 'Navigate', label: 'Home', icon: 'arrow', run: go('top'), keys: 'top hero start' },
     { group: 'Navigate', label: 'Selected work', icon: 'arrow', run: go('work'), keys: 'projects portfolio' },
-    { group: 'Navigate', label: 'Recognition', icon: 'arrow', run: go('recognition'), keys: 'awards achievements hackathon sih ctf' },
+    { group: 'Navigate', label: 'Credentials', icon: 'arrow', run: go('credentials'), keys: 'certificate awards achievements hackathon sih ctf recognition' },
     { group: 'Navigate', label: 'About', icon: 'arrow', run: go('about'), keys: 'bio skills education stack' },
     { group: 'Navigate', label: 'Contact', icon: 'arrow', run: go('contact'), keys: 'email hire reach' },
 
-    { group: 'Projects', label: 'SAJAG: Disaster Readiness Platform', icon: 'box', hint: 'SIH 2025', run: go('sajag'), keys: 'ndma node postgres' },
-    { group: 'Projects', label: 'Haven: Multi-agent AI companion', icon: 'box', hint: 'AI', run: go('haven'), keys: 'mcp gemini agents' },
-    { group: 'Projects', label: 'CloudGuard: GCP security scanner', icon: 'box', hint: 'Security', run: go('cloudguard'), keys: 'iam cloud gcp' },
-    { group: 'Projects', label: 'Campus Bazaar: Student marketplace', icon: 'box', hint: 'Live', run: go('campus-bazaar'), keys: 'supabase rls next moderation' },
-    { group: 'Projects', label: 'QUORUM: Multi-agent trading desk', icon: 'box', hint: 'ML', run: go('quorum'), keys: 'trading crypto ml bot' },
+    { group: 'Projects', label: 'CloudGuard: GCP misconfiguration scanner', icon: 'box', hint: 'Security', run: go('cloudguard'), keys: 'iam cloud gcp scanner' },
+    { group: 'Projects', label: 'CloudGuard: try the score simulator', icon: 'play', hint: 'Demo', run: go('cloudguard', 2), keys: 'interactive score demo' },
+    { group: 'Projects', label: 'Campus Bazaar: secure campus marketplace', icon: 'box', hint: 'Full-stack', run: go('campus-bazaar'), keys: 'supabase rls next moderation' },
+    { group: 'Projects', label: 'Campus Bazaar: explore the access rules', icon: 'play', hint: 'Demo', run: go('campus-bazaar', 2), keys: 'rls interactive demo policy' },
+    { group: 'Projects', label: 'Haven: multi-agent AI companion', icon: 'box', hint: 'AI', run: go('haven'), keys: 'mcp gemini agents' },
+    { group: 'Projects', label: 'Haven: watch the orchestrator route', icon: 'play', hint: 'Demo', run: go('haven', 2), keys: 'routing interactive demo agents' },
+    { group: 'Projects', label: 'SAJAG: disaster readiness platform', icon: 'box', hint: 'SIH 2025', run: go('sajag'), keys: 'ndma node postgres hackathon' },
+    { group: 'Projects', label: 'QUORUM: multi-agent trading desk', icon: 'box', hint: 'ML', run: go('quorum'), keys: 'trading crypto ml bot' },
 
-    { group: 'Actions', label: 'Copy email address', icon: 'copy', hint: EMAIL, run: () => copy(EMAIL), keys: 'mail contact' },
+    { group: 'Actions', label: 'Copy email address', icon: 'copy', hint: EMAIL, run: () => copyText(EMAIL, 'Email copied to clipboard'), keys: 'mail contact' },
     { group: 'Actions', label: 'Send an email', icon: 'mail', run: () => { window.location.href = `mailto:${EMAIL}`; }, keys: 'mail contact hire' },
     { group: 'Actions', label: 'Open résumé (PDF)', icon: 'file', run: open('assets/resume.pdf'), keys: 'resume cv pdf' },
+    { group: 'Actions', label: 'Verify Google Cloud Cybersecurity certificate', icon: 'shield', hint: 'Coursera', run: open('https://coursera.org/verify/professional-cert/YWI0DD30I1KF'), keys: 'certificate credential verify google' },
 
+    { group: 'Links', label: 'CloudGuard live site', icon: 'ext', run: open('https://cloudguard-landing.vercel.app/'), keys: 'demo website' },
+    { group: 'Links', label: 'Campus Bazaar live site', icon: 'ext', run: open('https://campusbazaar-nsut.vercel.app/'), keys: 'demo website' },
+    { group: 'Links', label: 'Haven live site', icon: 'ext', run: open('https://haven-ai-new.vercel.app/'), keys: 'demo website' },
     { group: 'Links', label: 'GitHub', icon: 'ext', hint: 'KeeratMalhotra', run: open('https://github.com/KeeratMalhotra'), keys: 'code repos source' },
     { group: 'Links', label: 'LinkedIn', icon: 'ext', hint: 'malhotrakeerat', run: open('https://www.linkedin.com/in/malhotrakeerat/'), keys: 'profile' },
-    { group: 'Links', label: 'Codolio', icon: 'ext', hint: 'DSA profile', run: open('https://codolio.com/profile/keeratmalhotra'), keys: 'leetcode dsa coding' },
-    { group: 'Links', label: 'Campus Bazaar live site', icon: 'ext', run: open('https://campusbazaar-nsut.vercel.app'), keys: 'demo' },
-    { group: 'Links', label: 'CloudGuard website', icon: 'ext', run: open('https://cloudguard-landing.vercel.app'), keys: 'demo' },
+    { group: 'Links', label: 'Codolio', icon: 'ext', hint: 'coding profile', run: open('https://codolio.com/profile/keeratmalhotra'), keys: 'coding profile platforms leetcode codechef' },
   ];
 
   const cmdk = $('#cmdk');
@@ -221,7 +240,6 @@
     if (label.startsWith(q)) return 4;
     if (label.includes(q)) return 3;
     if (hay.includes(q)) return 2;
-    // subsequence match
     let i = 0;
     for (const ch of label) if (ch === q[i]) i++;
     return i === q.length ? 1 : 0;
@@ -237,7 +255,7 @@
     if (!results.length) {
       const li = document.createElement('li');
       li.className = 'cmdk__empty';
-      li.textContent = 'No results. Try “email”, “resume” or a project name.';
+      li.textContent = 'No results. Try “cloudguard”, “resume” or “certificate”.';
       list.appendChild(li);
       input.removeAttribute('aria-activedescendant');
       return;
@@ -282,7 +300,6 @@
     const r = results[i];
     if (!r) return;
     close();
-    // let the dialog close before scrolling / opening
     setTimeout(r.c.run, 10);
   }
 
@@ -312,7 +329,7 @@
       if (e.key === 'ArrowDown') { e.preventDefault(); active = (active + 1) % Math.max(1, results.length); paint(); }
       else if (e.key === 'ArrowUp') { e.preventDefault(); active = (active - 1 + results.length) % Math.max(1, results.length); paint(); }
       else if (e.key === 'Enter') { e.preventDefault(); execute(active); }
-      else if (e.key === 'Tab') { e.preventDefault(); } // keep focus trapped in the dialog
+      else if (e.key === 'Tab') { e.preventDefault(); }
     });
 
     document.addEventListener('keydown', (e) => {
@@ -323,9 +340,9 @@
         return;
       }
       if (e.key === 'Escape' && !cmdk.hidden) { e.preventDefault(); close(); return; }
-      // "/" opens the menu too, unless typing in a field
       const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName) || document.activeElement?.isContentEditable;
-      if (e.key === '/' && !typing && cmdk.hidden) { e.preventDefault(); openMenu(); }
+      const lbOpen = document.getElementById('lightbox')?.open;
+      if (e.key === '/' && !typing && !lbOpen && cmdk.hidden) { e.preventDefault(); openMenu(); }
     });
   }
 
@@ -334,7 +351,7 @@
     console.log(
       '%c KM %c Reading the source? Good sign.\n\n' +
       '  Hand-built: HTML, CSS, raw WebGL. No frameworks.\n' +
-      '  If you are hiring for SWE, AI or security roles: ' + EMAIL + '\n',
+      '  Hiring for SWE, cloud security or AI roles? ' + EMAIL + '\n',
       'background:#6cf5b2;color:#04120b;font-weight:700;padding:2px 6px;border-radius:4px',
       'color:#a3a7af'
     );
